@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">tallybook</string>
+    <string name="edit">增加</string>
+    <string name="month_in">本月收入</string>
+    <string name="month_out">本月支出</string>
+    <string name="budget">预算剩余</string>
+    <string name="Excel">查看图表分析</string>
+    <string name="about">关于</string>
+    <string name="setting">设置</string>
+    <string name="history_record">历史账单</string>
+    <string name="account_info">账单详情</string>
+
+    <string name="about_appinfo">应用信息</string>
+    <string name="about_version">版本</string>
+    <string name="about_1">1.0</string>
+    <string name="about_app">关于应用</string>
+    <string name="about_jieshao">记录使用者的日账单、月账单、预算，可以根据备注模糊搜索账单情况，可以根据输入数据产生月账单图表分析</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
