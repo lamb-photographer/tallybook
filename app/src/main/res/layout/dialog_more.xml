@@ -13,19 +13,22 @@
             android:id="@+id/dialog_more_btn_about"
             style="@style/dialogmoreStyle"
             android:drawableTop="@mipmap/it_guanyu"
-            android:text="@string/about"/>
+            android:text="@string/about"
+            android:textSize="12sp"/>
         <Button
             android:id="@+id/dialog_more_btn_setting"
             style="@style/dialogmoreStyle"
             android:drawableTop="@mipmap/it_shezhi"
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
-            android:text="@string/setting"/>
+            android:text="@string/setting"
+            android:textSize="12sp"/>
         <Button
             android:id="@+id/dialog_more_btn_record"
             style="@style/dialogmoreStyle"
             android:drawableTop="@mipmap/it_jilu"
-            android:text="@string/history_record"/>
+            android:text="@string/history_record"
+            android:textSize="12sp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,7 +41,15 @@
             style="@style/dialogmoreStyle"
             android:drawableTop="@mipmap/it_xiqing"
             android:text="@string/account_info"
-            android:layout_marginRight="30dp"/>
+            android:textSize="12sp"/>
+        <Button
+            android:id="@+id/dialog_more_btn_back"
+            style="@style/dialogmoreStyle"
+            android:drawableTop="@mipmap/it_back"
+            android:text="@string/account_back"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="12sp"/>
     </LinearLayout>
     <ImageView
         android:id="@+id/dialog_more_iv"

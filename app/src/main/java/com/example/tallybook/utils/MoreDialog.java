@@ -16,12 +16,13 @@ import androidx.annotation.NonNull;
 
 import com.example.tallybook.AboutActivity;
 import com.example.tallybook.HistoryActivity;
+import com.example.tallybook.LoginActivity;
 import com.example.tallybook.MonthChartActivity;
 import com.example.tallybook.R;
 import com.example.tallybook.SettingActivity;
 
 public class MoreDialog extends Dialog implements View.OnClickListener {
-    Button aboutBtn,settingBtn,historyBtn,infoBtn;
+    Button aboutBtn,settingBtn,historyBtn,infoBtn,backBtn;
     ImageView errorIv;
 
     public MoreDialog(@NonNull Context context) {
@@ -36,6 +37,7 @@ public class MoreDialog extends Dialog implements View.OnClickListener {
         settingBtn = findViewById(R.id.dialog_more_btn_setting);
         historyBtn = findViewById(R.id.dialog_more_btn_record);
         infoBtn = findViewById(R.id.dialog_more_btn_info);
+        backBtn = findViewById(R.id.dialog_more_btn_back);
         errorIv = findViewById(R.id.dialog_more_iv);
 
         aboutBtn.setOnClickListener(this);
@@ -43,6 +45,7 @@ public class MoreDialog extends Dialog implements View.OnClickListener {
         historyBtn.setOnClickListener(this);
         infoBtn.setOnClickListener(this);
         errorIv.setOnClickListener(this);
+        backBtn.setOnClickListener(this);
 
     }
 
@@ -66,6 +69,9 @@ public class MoreDialog extends Dialog implements View.OnClickListener {
                 intent.setClass(getContext(), MonthChartActivity.class);
                 getContext().startActivity(intent);
                 break;
+            case R.id.dialog_more_btn_back:
+                intent.setClass(getContext(), LoginActivity.class);
+                getContext().startActivity(intent);
             case R.id.dialog_more_iv:
                 break;
         }
