@@ -50,9 +50,6 @@ public class DBManager {
                 "time varchar(60),year integer,month integer,day integer,kind integer)";
         db.execSQL(sql);
     }
-    //设置budget
-    public static void setBudget(float money){budgetmoney = money;}
-    public static float getBudget(){return budgetmoney;}
     //插入数据
     public static void insertItemToAccounttb(AccountBean bean){
         ContentValues values = new ContentValues();

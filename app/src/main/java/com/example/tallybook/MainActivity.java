@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     View headerView;
     TextView topOutTv,topInTv,topbudgetTv,topConTv;
     ImageView topShowIv;
+    SharedPreferences preferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //添加listview头布局
         addLVHeaderView();
         mDatas = new ArrayList<>();
+        preferences = getSharedPreferences("budget", Context.MODE_PRIVATE);
         //设置适配器加载数据
         adapter = new AccountAdapter(this, mDatas);
         todayLv.setAdapter(adapter);
@@ -141,11 +143,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         topInTv.setText("￥"+incomeOneMonth);
         topOutTv.setText("￥"+outcomeOneMonth);
         //设置显示预算剩余
-        float Money = DBManager.getBudget();
-        if (Money==0) {
-            topbudgetTv.setText("￥0");
-        }else {
-            float syMoney = Money-outcomeOneMonth;
+        float bmoney = preferences.getFloat("bmoney", 0);
+        if (bmoney == 0) {
+            topbudgetTv.setText("￥ 0");
+        }else{
+            float syMoney = bmoney-outcomeOneMonth;
             topbudgetTv.setText("￥"+syMoney);
         }
     }
@@ -193,7 +195,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dialog.setOnEnsureListener(new BudgetDialog.OnEnsureListener() {
             @Override
             public void onEnsure(float money) {
-                DBManager.setBudget(money);
+                //将预算金额写入到共享参数当中，进行存储
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putFloat("bmoney",money);
+                editor.commit();
                 //计算剩余
                 float outcomeOneMonth = DBManager.getMoneyOneMonth(year, month, 0);
                 float syMoney = money-outcomeOneMonth;
